@@ -9,7 +9,7 @@ class SQRServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {"'Границы перепутаны', 1000, 100, 0"})
-    void Should_0_When_Swappedrangeboundaries(String testName, long minBoard, long maxBoard, long expected) {
+    void Should0WhenSwappedRangeBoundaries(String testName, long minBoard, long maxBoard, long expected) {
         SQRService sQRServiceFirst = new SQRService();
 
         long actual = sQRServiceFirst.calculate(minBoard, maxBoard);
@@ -22,7 +22,7 @@ class SQRServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {"'Максимальная граница слишком большая', 100, 500000000000, 90"})
-    void Should_90_When_Theupperlimitisveryhigh(String testName, long minBoard, long maxBoard, long expected) {
+    void Should90WhenTheUpperLimitIsVeryHigh(String testName, long minBoard, long maxBoard, long expected) {
         SQRService sQRServiceFirst = new SQRService();
 
         long actual = sQRServiceFirst.calculate(minBoard, maxBoard);
@@ -35,7 +35,7 @@ class SQRServiceTest {
 
     @ParameterizedTest
     @CsvSource(value = {"'Минимальная граница 0', 0, 5000, 61"})
-    void Should_61_When_Lowerlimitis0(String testName, long minBoard, long maxBoard, long expected) {
+    void Should61WhenLowerLimitIs0(String testName, long minBoard, long maxBoard, long expected) {
         SQRService sQRServiceFirst = new SQRService();
 
         long actual = sQRServiceFirst.calculate(minBoard, maxBoard);
