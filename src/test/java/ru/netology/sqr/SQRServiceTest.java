@@ -1,5 +1,8 @@
 package ru.netology.sqr;
 
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -7,9 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class SQRServiceTest {
 
-    @ParameterizedTest
-    @CsvSource(value = {"'Границы перепутаны', 1000, 100, 0"})
-    void Should0WhenSwappedRangeBoundaries(String testName, long minBoard, long maxBoard, long expected) {
+    @org.junit.jupiter.api.Test
+    void should0WhenSwappedRangeBoundaries() {
+        long minBoard = 1000;
+        long maxBoard = 100;
+        long expected = 0;
+
         SQRService sQRServiceFirst = new SQRService();
 
         long actual = sQRServiceFirst.calculate(minBoard, maxBoard);
@@ -20,9 +26,11 @@ class SQRServiceTest {
         assertEquals(expected, actual);
     }
 
-    @ParameterizedTest
-    @CsvSource(value = {"'Максимальная граница слишком большая', 100, 500000000000, 90"})
-    void Should90WhenTheUpperLimitIsVeryHigh(String testName, long minBoard, long maxBoard, long expected) {
+    @org.junit.jupiter.api.Test
+    void should90WhenTheUpperLimitIsVeryHigh() {
+        long minBoard = 100;
+        long maxBoard = 500000000;
+        long expected = 90;
         SQRService sQRServiceFirst = new SQRService();
 
         long actual = sQRServiceFirst.calculate(minBoard, maxBoard);
@@ -33,9 +41,11 @@ class SQRServiceTest {
         assertEquals(expected, actual);
     }
 
-    @ParameterizedTest
-    @CsvSource(value = {"'Минимальная граница 0', 0, 5000, 61"})
-    void Should61WhenLowerLimitIs0(String testName, long minBoard, long maxBoard, long expected) {
+    @org.junit.jupiter.api.Test
+    void should61WhenLowerLimitIs0() {
+        long minBoard = 0;
+        long maxBoard = 5000;
+        long expected = 61;
         SQRService sQRServiceFirst = new SQRService();
 
         long actual = sQRServiceFirst.calculate(minBoard, maxBoard);
